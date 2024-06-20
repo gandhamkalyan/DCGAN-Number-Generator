@@ -14,19 +14,28 @@ In this project, we leverage DCGANs to generate images of numbers. The generator
 The generator's role is to take random noise as input and transform it into realistic images of numbers. It uses a series of convolutional transpose layers (also known as deconvolutional layers) to upsample the noise vector into an image. The key layers include:
 
 Dense Layer: Fully connected layer to reshape the noise vector.
+
 Batch Normalization: Helps stabilize and accelerate training.
+
 ReLU Activation: Introduces non-linearity.
+
 Conv2DTranspose Layers: Upsamples the input to the desired image size.
+
 Tanh Activation: Normalizes the output image pixels to the range [-1, 1].
 
 # Discriminator
 The discriminator's role is to distinguish between real images (from the dataset) and fake images (produced by the generator). It uses a series of convolutional layers to downsample the image and output a probability score. The key layers include:
 
 Conv2D Layers: Downsamples the input image.
+
 Batch Normalization: Helps stabilize and accelerate training.
+
 LeakyReLU Activation: Allows a small gradient when the unit is not active.
+
 Dense Layer: Fully connected layer to output the final probability score.
+
 Sigmoid Activation: Outputs a probability score between 0 and 1.
+
 Training Process
 The training process involves alternating between training the discriminator and the generator:
 
